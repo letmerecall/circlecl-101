@@ -5,4 +5,11 @@
        - image: circleci/python:3.6.4
      steps:
        - checkout
-       - run: echo "A first hello"
+       - run: 
+           name: isntall dependencies
+           command: |
+                   sudo pip install -r requirements.txt
+       - run:
+           name: run linting test
+           command: |
+                   flake8 --statistics
